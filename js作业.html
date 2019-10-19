@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" value="" id="a">
+	<select id="suan">
+		<option value="+">+</option>
+		<option value="-">-</option>
+		<option value="*">*</option>
+		<option value="/">/</option>
+	</select>
+	<input type="text" value="" id="b">
+  <button id="yunsuan">=</button>
+	<input type="text" value="" id="c">
+	<div id="ig"></div>
+	<div id="jg"></div>
+	<script>
+		var inputa=document.getElementById('a');
+		var inputb=document.getElementById('b');
+		var bj=document.getElementById('bj');
+		var jg=document.getElementById('jg');
+		var a = document.getElementById("a");
+		var b = document.getElementById("b");
+		var c = document.getElementById("c");
+		var suan = document.getElementById("suan");
+		var chu = document.getElementById("chu");
+		var yunsuan = document.getElementById("yunsuan");
+		var jg=document.getElementById('jg');
+		yunsuan.onclick=function () {
+			var ia=inputa.value;
+			var ib=inputb.value;
+			if(ia!='' && ib!=''){
+				if(!isNaN(ia) && !isNaN(ib)){
+				 if(suan.value=='+'){
+				 c.value = parseInt(a.value)+parseInt(b.value);
+			 }else if(suan.value=='-'){
+				 c.value = parseInt(a.value)-parseInt(b.value);
+			 }else if(suan.value=='*'){
+				 c.value = parseInt(a.value)*parseInt(b.value);
+			 }else if(suan.value=='/'){
+			 	if(ib!='0'){
+				 c.value = parseInt(a.value)/parseInt(b.value);
+			 	}else{
+			 	jg.innerHTML='被除数不能为零';
+			}
+			 }
+			 else{jg.innerHTML='前框或后框没有填写';}
+       }
+			 else{
+				 jg.innerHTML='前框或后框不是数字';
+				}
+			 }
+		}
+	</script>
+</body>
+</html>
